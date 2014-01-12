@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://malsup.github.io/jquery.cycle.all.js"></script>
+         <script>
+            function increment_box1(myInput) {
+                if (myInput.value <= 19) {
+                    myInput.value = (+myInput.value + 1) || 0;
+                }
+            }
+            function decrement_box1(myInput) {
+                myInput.value = Math.max(1, (myInput.value - 1) || 0);
+            }
+            
+            function increment_box2(myInput) {
+                if (myInput.value <= 19) {
+                    myInput.value = (+myInput.value + 1) || 0;
+                }
+            }
+            function decrement_box2(myInput) {
+                myInput.value = Math.max(1, (myInput.value - 1) || 0);
+            }
+   
+            function increment_box3(myInput) {
+                if (myInput.value <= 19) {
+                    myInput.value = (+myInput.value + 1) || 0;
+                }
+            }
+            function decrement_box3(myInput) {
+                myInput.value = Math.max(1, (myInput.value - 1) || 0);
+            }
+       
+            function increment_box4(myInput) {
+                if (myInput.value <= 19) {
+                    myInput.value = (+myInput.value + 1) || 0;
+                }
+            }
+            function decrement_box4(myInput) {
+                myInput.value = Math.max(1, (myInput.value - 1) || 0);
+            }
+     
+            function increment_box5(myInput) {
+                if (myInput.value <= 19) {
+                    myInput.value = (+myInput.value + 1) || 0;
+                }
+            }
+            function decrement_box5(myInput) {
+                myInput.value = Math.max(1, (myInput.value - 1) || 0);
+            }
+        </script>
+        <title></title>
+    </head>
+    <body>
+        <form  action="handler.php" method="post">	
+        <table border="1" align="center">
+            <tr>
+                <td>    
+                    <center><img src="img\plus.png" onclick="increment_box1(document.getElementById('box1'));"></center>
+                </td>
+                <td>    
+                    <center><img src="img\plus.png" onclick="increment_box2(document.getElementById('box2'));"></center>
+                </td>
+                <td>    
+                    <center><img src="img\plus.png" onclick="increment_box3(document.getElementById('box3'));"></center>
+                </td>
+                <td>    
+                    <center><img src="img\plus.png" onclick="increment_box4(document.getElementById('box4'));"></center>
+                </td>
+                <td>    
+                    <center><img src="img\plus.png" onclick="increment_box5(document.getElementById('box5'));"></center>
+                </td>
+            </tr>     
+            <tr>
+                <td>
+                    <input type="text" value="1" id="box1"/>
+                </td>
+                <td>
+                    <input type="text" value="1" id="box2"/>
+                </td>
+                <td>
+                    <input type="text" value="1" id="box3"/>
+                </td>
+                <td>
+                    <input type="text" value="1" id="box4"/>
+                </td>
+                <td>
+                    <input type="text" value="1" id="box5"/>
+                </td>
+            </tr> 
+            <tr>
+                <td>    
+                    <center><img src="img\minus.png" onclick="decrement_box1(document.getElementById('box1'));"></center>
+                </td>
+                <td>    
+                    <center><img src="img\minus.png" onclick="decrement_box2(document.getElementById('box2'));"></center>
+                </td>
+                <td>    
+                    <center><img src="img\minus.png" onclick="decrement_box3(document.getElementById('box3'));"></center>
+                </td>
+                <td>    
+                   <center><img src="img\minus.png" onclick="decrement_box4(document.getElementById('box4'));"></center>
+                </td>
+                <td>    
+                   <center><img src="img\minus.png" onclick="decrement_box5(document.getElementById('box5'));"></center>
+                </td>
+            </tr>  
+        </table>  
+        <center><input type="submit" value="make bet!"></center>
+        <center><input id="luck_button" type="button" value="try your luck!"/></center>
+        </form> 
+        <script type="text/javascript">
+            function rand(){
+                var mn = 1;
+                var mx = 20;
+                var ran = mn + Math.floor(Math.random()*(mx+1-mn));
+                return ran;
+            }
+            $("#luck_button").click(function(){
+                $("#box1").val(rand());
+                $("#box2").val(rand());
+                $("#box3").val(rand());
+                $("#box4").val(rand());
+                $("#box5").val(rand());
+                $("#box5").val(rand());
+                return false;
+            });
+        </script>
+    </body>
+</html>
