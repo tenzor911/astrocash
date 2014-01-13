@@ -4,128 +4,93 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="http://malsup.github.io/jquery.cycle.all.js"></script>
-         <script>
-            function increment_box1(myInput) {
-                if (myInput.value <= 19) {
-                    myInput.value = (+myInput.value + 1) || 0;
-                }
-            }
-            function decrement_box1(myInput) {
-                myInput.value = Math.max(1, (myInput.value - 1) || 0);
-            }
-            
-            function increment_box2(myInput) {
-                if (myInput.value <= 19) {
-                    myInput.value = (+myInput.value + 1) || 0;
-                }
-            }
-            function decrement_box2(myInput) {
-                myInput.value = Math.max(1, (myInput.value - 1) || 0);
-            }
-   
-            function increment_box3(myInput) {
-                if (myInput.value <= 19) {
-                    myInput.value = (+myInput.value + 1) || 0;
-                }
-            }
-            function decrement_box3(myInput) {
-                myInput.value = Math.max(1, (myInput.value - 1) || 0);
-            }
-       
-            function increment_box4(myInput) {
-                if (myInput.value <= 19) {
-                    myInput.value = (+myInput.value + 1) || 0;
-                }
-            }
-            function decrement_box4(myInput) {
-                myInput.value = Math.max(1, (myInput.value - 1) || 0);
-            }
-     
-            function increment_box5(myInput) {
-                if (myInput.value <= 19) {
-                    myInput.value = (+myInput.value + 1) || 0;
-                }
-            }
-            function decrement_box5(myInput) {
-                myInput.value = Math.max(1, (myInput.value - 1) || 0);
-            }
-        </script>
         <title></title>
     </head>
+    //http://p2p.wrox.com/javascript-how/27623-toggle-active-state-textbox-radio-button.html
     <body>
         <form  action="handler.php" method="post">	
-        <table border="1" align="center">
-            <tr>
-                <td>    
-                    <center><img src="img\plus.png" onclick="increment_box1(document.getElementById('box1'));"></center>
-                </td>
-                <td>    
-                    <center><img src="img\plus.png" onclick="increment_box2(document.getElementById('box2'));"></center>
-                </td>
-                <td>    
-                    <center><img src="img\plus.png" onclick="increment_box3(document.getElementById('box3'));"></center>
-                </td>
-                <td>    
-                    <center><img src="img\plus.png" onclick="increment_box4(document.getElementById('box4'));"></center>
-                </td>
-                <td>    
-                    <center><img src="img\plus.png" onclick="increment_box5(document.getElementById('box5'));"></center>
-                </td>
-            </tr>     
-            <tr>
-                <td>
-                    <input type="text" value="1" id="box1"/>
-                </td>
-                <td>
-                    <input type="text" value="1" id="box2"/>
-                </td>
-                <td>
-                    <input type="text" value="1" id="box3"/>
-                </td>
-                <td>
-                    <input type="text" value="1" id="box4"/>
-                </td>
-                <td>
-                    <input type="text" value="1" id="box5"/>
-                </td>
-            </tr> 
-            <tr>
-                <td>    
-                    <center><img src="img\minus.png" onclick="decrement_box1(document.getElementById('box1'));"></center>
-                </td>
-                <td>    
-                    <center><img src="img\minus.png" onclick="decrement_box2(document.getElementById('box2'));"></center>
-                </td>
-                <td>    
-                    <center><img src="img\minus.png" onclick="decrement_box3(document.getElementById('box3'));"></center>
-                </td>
-                <td>    
-                   <center><img src="img\minus.png" onclick="decrement_box4(document.getElementById('box4'));"></center>
-                </td>
-                <td>    
-                   <center><img src="img\minus.png" onclick="decrement_box5(document.getElementById('box5'));"></center>
-                </td>
-            </tr>  
-        </table>  
-        <center><input type="submit" value="make bet!"></center>
-        <center><input id="luck_button" type="button" value="try your luck!"/></center>
-        </form> 
-        <script type="text/javascript">
-            function rand(){
-                var mn = 1;
-                var mx = 20;
-                var ran = mn + Math.floor(Math.random()*(mx+1-mn));
-                return ran;
+            <select class="formSelect" name="priority1" onChange="p1(priority1);" onClick="p1(priority1);" width="175px" id="priority1" size="1" tabindex="22";>
+                <option value="0">No Preference</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <select name="priority2" class="chidden" onChange="p2(priority2);" onClick="p2(priority2);" width="175px" id="priority2" size="1" tabindex="22";>
+                <option value="0">No Preference</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <select name="priority3" class="chidden" onChange="p3(priority3);" onClick="p3(priority3);" width="175px" id="priority3" size="1" tabindex="22";>
+                <option value="0">No Preference</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <select name="priority4" class="chidden" onChange="p4(priority4);" onClick="p4(priority4);" width="175px" id="priority4" size="1" tabindex="22";>
+                <option value="0">No Preference</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <select name="priority5" class="chidden" onChange="p5(priority5);" onClick="p5(priority5);" width="175px" id="priority5" size="1" tabindex="22";>
+                <option value="0">No Preference</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <select name="priority5" class="chidden" width="175px" id="priority5" size="1" tabindex="22";>
+                <option value="0">No Preference</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+        </form>
+        <script>
+        $('select').change(function(){
+            var sel = $(this); 
+            var data = sel.data('prev'); 
+            var val = sel.val();
+            var prev; 
+            if(data){ prev = data.val; }
+            sel.data('prev', {val: val}); 
+            sel.nextAll().each(function(){
+            if(prev){
+                $(this).find("[value='" + prev+ "']").prop("disabled",false);
             }
-            $("#luck_button").click(function(){
-                $("#box1").val(rand());
-                $("#box2").val(rand());
-                $("#box3").val(rand());
-                $("#box4").val(rand());
-                $("#box5").val(rand());
-                $("#box5").val(rand());
-                return false;
+            $(this).find("[value='" + val + "']").prop("disabled",true);
             });
+        });
         </script>
-    </body>
+  </body>
 </html>
