@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Disable</title>
+</head>
+
+<body>
+
+<select class="formSelect" name="priority1" onChange="p1(priority1);" onClick="p1(priority1);" width="175px" id="priority1" size="1" tabindex="22";>
+    <option value="0">No Preference</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+No:<input type="radio" name="Phone" value="no" id="phone_no"/>
+Yes:<input type="radio" name="Phone" value="yes" id="phone_yes"/>
+<br/>
+Phone:
+<input name="PhoneNumber" type="tel" id="PhoneNumber" size="25" />
+<br/>
+Last Name:
+<input name="LastName" type="text" size="25" />
+
+
+    
+<script>
+window.onload = function() {
+    document.getElementById('phone_no').onchange = disablefield;
+    document.getElementById('phone_yes').onchange = disablefield;
+}
+
+function disablefield()
+{
+    if ( document.getElementById('phone_no').checked == true )  {
+        document.getElementById('priority1').disabled = true}
+    else if (document.getElementById('phone_yes').checked == true ) {
+        document.getElementById('priority1').disabled = false;
+    }
+}
+
+</script>    
+</body>
+</html>

@@ -6,11 +6,10 @@
 	<script src="http://malsup.github.io/jquery.cycle.all.js"></script>
         <title></title>
     </head>
-    //http://p2p.wrox.com/javascript-how/27623-toggle-active-state-textbox-radio-button.html
     <body>
-        <form  action="handler.php" method="post">	
+        <form action="handler.php" name="lotoform" method="post">	
             <select class="formSelect" name="priority1" onChange="p1(priority1);" onClick="p1(priority1);" width="175px" id="priority1" size="1" tabindex="22";>
-                <option value="0">No Preference</option>
+                <option value="0" id="noselect">No Preference</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -19,9 +18,9 @@
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
-            </select>
+            </select>     
             <select name="priority2" class="chidden" onChange="p2(priority2);" onClick="p2(priority2);" width="175px" id="priority2" size="1" tabindex="22";>
-                <option value="0">No Preference</option>
+                <option value="0" id="noselect">No Preference</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -30,9 +29,9 @@
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
-            </select>
+            </select>     
             <select name="priority3" class="chidden" onChange="p3(priority3);" onClick="p3(priority3);" width="175px" id="priority3" size="1" tabindex="22";>
-                <option value="0">No Preference</option>
+                <option value="0" id="noselect">No Preference</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -41,9 +40,9 @@
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
-            </select>
+            </select>          
             <select name="priority4" class="chidden" onChange="p4(priority4);" onClick="p4(priority4);" width="175px" id="priority4" size="1" tabindex="22";>
-                <option value="0">No Preference</option>
+                <option value="0" id="noselect">No Preference</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -54,7 +53,7 @@
                 <option value="8">8</option>
             </select>
             <select name="priority5" class="chidden" onChange="p5(priority5);" onClick="p5(priority5);" width="175px" id="priority5" size="1" tabindex="22";>
-                <option value="0">No Preference</option>
+                <option value="0" id="noselect">No Preference</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -63,9 +62,9 @@
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
-            </select>
+            </select>    
             <select name="priority5" class="chidden" width="175px" id="priority5" size="1" tabindex="22";>
-                <option value="0">No Preference</option>
+                <option value="0" id="noselect">No Preference</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -75,22 +74,38 @@
                 <option value="7">7</option>
                 <option value="8">8</option>
             </select>
+            <input type="submit" id="mysubmit" value="try">
         </form>
         <script>
-        $('select').change(function(){
-            var sel = $(this); 
-            var data = sel.data('prev'); 
-            var val = sel.val();
-            var prev; 
-            if(data){ prev = data.val; }
-            sel.data('prev', {val: val}); 
-            sel.nextAll().each(function(){
-            if(prev){
+            $('select').change(function()   {
+                var sel = $(this); 
+                var data = sel.data('prev'); 
+                var val = sel.val();
+                var prev; 
+                if(data)    { 
+                    prev = data.val; 
+                }
+                sel.data('prev', {val: val}); 
+                sel.nextAll().each(function()   {
+                
+                    if(prev)    {
+                        $(this).find("[value='" + prev+ "']").prop("disabled",false);
+                    }
+                    $(this).find("[value='" + val + "']").prop("disabled",true);
+                });
+    
+            sel.prevAll().each(function()   {
+            if(prev)    {
                 $(this).find("[value='" + prev+ "']").prop("disabled",false);
             }
             $(this).find("[value='" + val + "']").prop("disabled",true);
             });
-        });
+            });
+        </script>
+        <script>
+            $("select").each(function()   {
+                alert($(this).find('option:selected').attr('id'));
+            });
         </script>
   </body>
 </html>

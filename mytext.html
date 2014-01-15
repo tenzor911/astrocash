@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <input name="PhoneNumber" type="tel" id="BillingCountryCode" size="25" />
+        <input name="PhoneNumber" type="tel" value="1" id="BillingStateProvince" size="25" />
+        <input name="PhoneNumber" type="tel" value="2" id="BillingStateProvince2" size="25" />
+        <script>
+            document.getElementById('BillingCountryCode').onchange = function () {
+            if(this.value === "840") {
+                document.getElementById("BillingStateProvince").disabled = true;
+                document.getElementById("BillingStateProvince").style.display="none";
+                document.getElementById("BillingStateProvince2").disabled = false;
+                document.getElementById("BillingStateProvince2").style.display="block";
+            }
+            else {
+                document.getElementById("BillingStateProvince").disabled = false;
+                document.getElementById("BillingStateProvince").style.display="block";
+                document.getElementById("BillingStateProvince2").disabled = true;
+                document.getElementById("BillingStateProvince2").style.display="none";
+            }
+        }
+        </script>
+    </body>
+</html>
