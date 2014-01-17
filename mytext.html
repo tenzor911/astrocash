@@ -26,3 +26,22 @@
         </script>
     </body>
 </html>
+ checkOptions();
+            $("select").change(checkOptions);
+            
+            function checkOptions() {
+                var nonSelected = false;
+                $("select").each(function(index, Element)) {
+                    if ( $(element).val() == "0") {
+                        nonSelected = true;
+                    }
+                });
+            
+            if (yesFound) {
+                $("#hidden-div").show();
+                $("input[type=Submit]").attr("disabled","disabled");
+            } else {
+                $("#hidden-div").hide();
+                $("input[type=Submit]").removeAttr("disabled");
+            };
+          }

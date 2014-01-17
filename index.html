@@ -7,7 +7,13 @@
         <title></title>
     </head>
     <body>
-        <form action="handler.php" name="lotoform" method="post">	
+        <div id="hidden-div" style="display:none;">Пожалуйста выберите во всех полях те числа, на которые вы желаете сделать ставку.</div>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <br>
+        <center><form action="handler.php" name="lotoform" method="post">	
             <select class="formSelect" name="priority1" onChange="p1(priority1);" onClick="p1(priority1);" width="175px" id="priority1" size="1" tabindex="22";>
                 <option value="0" id="noselect">No Preference</option>
                 <option value="1">1</option>
@@ -74,8 +80,18 @@
                 <option value="7">7</option>
                 <option value="8">8</option>
             </select>
-            <input type="submit" id="mysubmit" value="try">
-        </form>
+            <br>
+            <br>
+            <br>
+            <hr>
+            <input type="checkbox" value="my">Я подтверждаю что правильно указал все сектора и готов сделать ставку.
+            <br>
+            <br>
+            <br>
+            <center>
+                <input type="submit" id="mysubmit" value="СДЕЛАТЬ СТАВКУ!">
+            </center> 
+            </form></center>
         <script>
             $('select').change(function()   {
                 var sel = $(this); 
@@ -103,9 +119,25 @@
             });
         </script>
         <script>
-            $("select").each(function()   {
-                alert($(this).find('option:selected').attr('id'));
-            });
+            checkOptions();
+            $("select").change(checkOptions);
+
+            function checkOptions() {
+                var yesFound = false;
+                $("select").each(function(index, element) {
+                    if ( $(element).val() == "0" ) {
+                        yesFound = true;
+                    }
+                });
+
+                if (yesFound) {
+                    $("#hidden-div").show();
+                    $("input:checkbox").attr("disabled","disabled");
+                } else {
+                    $("#hidden-div").hide();
+                    $("input:checkbox").removeAttr("disabled");
+                };
+            } 
         </script>
   </body>
 </html>
