@@ -10,5 +10,6 @@ $num3=$_POST["num3"];
 $num4=$_POST["num4"];	
 $num5=$_POST["num5"];	
 $num6=$_POST["num6"];	
-$insert = mysql_query("INSERT INTO loto_db.loto_ticket_info (num_first, num_second, num_third, num_fourth, num_fifth, num_sixth) VALUES('$num1','$num2','$num3','$num4','$num5','$num6')"); //вставка значений $info1 и $info2 в таблицу БД, спомощью SQL-запроса, id берется на 1 больше, чем количество строк в таблице.
+$current_date = date("H:i:s d-m-Y");
+$insert = mysql_query("INSERT INTO loto_db.loto_ticket_info (num_first, num_second, num_third, num_fourth, num_fifth, num_sixth, bid_date) VALUES('$num1','$num2','$num3','$num4','$num5','$num6', '$current_date')"); //вставка значений $info1 и $info2 в таблицу БД, спомощью SQL-запроса, id берется на 1 больше, чем количество строк в таблице.
 ?>									
